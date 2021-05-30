@@ -474,3 +474,6 @@ function translit($str) {
     return $transliteratedStr;
 }
 ```
+
+## Запросы HTTP, параметры URL и формы HTML
+**1.** https://github.com/belyash23/internship/blob/main/php/4.1%20-%20calc.php
