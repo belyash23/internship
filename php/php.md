@@ -477,3 +477,6 @@ function translit($str) {
 
 ## Запросы HTTP, параметры URL и формы HTML
 **1.** https://github.com/belyash23/internship/blob/main/php/4.1%20-%20calc.php
+
+## Cookies и сессии PHP.
+https://github.com/belyash23/internship/tree/main/php/5%20-%20sessions%20and%20cookies
