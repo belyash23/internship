@@ -321,7 +321,7 @@ $regions = [
 ];
 foreach($regions as $region => $cities) {
 	echo $region . ':<br>';
-	echo implode($cities, ', ') . '<br>';
+	echo implode(', ', $cities) . '<br>';
 }
 ```
 
@@ -329,17 +329,148 @@ foreach($regions as $region => $cities) {
 ```php
 <?php
 $regions = [
-'Московская область' => ['Москва', 'Зеленоград', 'Клин'],
-'Ленинградская область' => ['Санкт-Петербург', 'Всеволожск', 'Павловск', 'Кронштадт'],
-'Рязанская область' => ['Рязань', 'Касимов', 'Михайлов'],
-'Калужская область' => ['Калуга', 'Обнинск', 'Козельск']
+    'Московская область' => ['Москва', 'Зеленоград', 'Клин'],
+    'Ленинградская область' => ['Санкт-Петербург', 'Всеволожск', 'Павловск', 'Кронштадт'],
+    'Рязанская область' => ['Рязань', 'Касимов', 'Михайлов'],
+    'Калужская область' => ['Калуга', 'Обнинск', 'Козельск']
 ];
 foreach($regions as $region => $cities) {
-	echo $region . ':<br>';
-	$filteredCities = array_filter($cities, function($city) {
-		$firstLetter = mb_substr($city, 0, 1);
-		return $firstLetter === 'К';
-	});
-	echo implode($filteredCities, ', ') . '<br>';
+    echo $region . ':<br>';
+    $filteredCities = array_filter($cities, function($city) {
+        $firstLetter = mb_substr($city, 0, 1);
+        return $firstLetter === 'К';
+    });
+    echo implode(', ', $filteredCities) . '<br>';
+}
+```
+
+**6.**
+```php
+<?php
+function translit($str) {
+    $letters = array(
+        'а' => 'a',
+        'б' => 'b',
+        'в' => 'v',
+        'г' => 'g',
+        'д' => 'd',
+        'е' => 'e',
+        'ё' => 'e',
+        'ж' => 'zh',
+        'з' => 'z',
+        'и' => 'i',
+        'й' => 'y',
+        'к' => 'k',
+        'л' => 'l',
+        'м' => 'm',
+        'н' => 'n',
+        'о' => 'o',
+        'п' => 'p',
+        'р' => 'r',
+        'с' => 's',
+        'т' => 't',
+        'у' => 'u',
+        'ф' => 'f',
+        'х' => 'h',
+        'ц' => 'c',
+        'ч' => 'ch',
+        'ш' => 'sh',
+        'щ' => 'sch',
+        'ь' => '',
+        'ы' => 'y',
+        'ъ' => '',
+        'э' => 'e',
+        'ю' => 'yu',
+        'я' => 'ya'
+    );
+    $transliteratedStr = '';
+
+    for($i = 0; $i < mb_strlen($str); $i++){
+        $letter = mb_substr($str, $i, 1);
+        $transliteratedLetter = $letters[mb_strtolower($letter)];
+        if(!$transliteratedLetter) {
+            $transliteratedLetter = $letter;
+        }
+        if(mb_strtoupper($letter) === $letter) {
+           $transliteratedLetter = ucfirst($transliteratedLetter);
+        }
+        $transliteratedStr .= $transliteratedLetter;
+    }
+    return $transliteratedStr;
+}
+```
+
+**7.**
+```php
+<?php
+function replaceSpaces($str) {
+    $newStr = '';
+    for($i = 0; $i < mb_strlen($str); $i++) {
+        $symbol = mb_substr($str, $i, 1);
+        if($symbol === ' ') {
+            $symbol = '_';
+        }
+        $newStr .= $symbol;
+    }
+    return $newStr;
+}
+```
+
+**8.**
+```php
+<?php
+function translit($str) {
+    $letters = array(
+        'а' => 'a',
+        'б' => 'b',
+        'в' => 'v',
+        'г' => 'g',
+        'д' => 'd',
+        'е' => 'e',
+        'ё' => 'e',
+        'ж' => 'zh',
+        'з' => 'z',
+        'и' => 'i',
+        'й' => 'y',
+        'к' => 'k',
+        'л' => 'l',
+        'м' => 'm',
+        'н' => 'n',
+        'о' => 'o',
+        'п' => 'p',
+        'р' => 'r',
+        'с' => 's',
+        'т' => 't',
+        'у' => 'u',
+        'ф' => 'f',
+        'х' => 'h',
+        'ц' => 'c',
+        'ч' => 'ch',
+        'ш' => 'sh',
+        'щ' => 'sch',
+        'ь' => '',
+        'ы' => 'y',
+        'ъ' => '',
+        'э' => 'e',
+        'ю' => 'yu',
+        'я' => 'ya'
+    );
+    $transliteratedStr = '';
+
+    for($i = 0; $i < mb_strlen($str); $i++){
+        $symbol = mb_substr($str, $i, 1);
+        $transliteratedLetter = $letters[mb_strtolower($symbol)];
+        if($symbol === ' ') {
+            $symbol = '_';
+        }
+        if(!$transliteratedLetter) {
+            $transliteratedLetter = $symbol;
+        }
+        if(mb_strtoupper($symbol) === $symbol) {
+            $transliteratedLetter = ucfirst($transliteratedLetter);
+        }
+        $transliteratedStr .= $transliteratedLetter;
+    }
+    return $transliteratedStr;
 }
 ```
