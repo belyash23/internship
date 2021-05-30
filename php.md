@@ -111,3 +111,164 @@ echo "<br>false xor false = " . ((false xor false) ? "true" : "false");
 `$a xor $a` равно `false` при любых значениях `$a`
 
 ## Ветвления и функции
+**1.**
+```php
+<?php
+const A = 1;
+const B = 2;
+$a = A;
+$b = B;
+$result = 0;
+
+if($a >= 0 && $b >= 0) {
+	$result = $a + $b;
+}
+elseif($a < 0 && $b < 0) {
+	$result = $a - $b;
+}
+else {
+	$result = $a * $b;
+}
+
+echo $result;
+```
+
+**2.**
+```php
+<?php
+$a = 2;
+$b = 3;
+echo ($a > $b) ? $a: $b;
+```
+
+**3.**
+```php
+<?php
+$a = 2;
+switch($a) {
+	case 0:
+		echo 0 . '<br>';
+	case 1:
+		echo 1 . '<br>';
+	case 2:
+		echo 2 . '<br>';
+	case 3:
+		echo 3 . '<br>';
+	case 4:
+		echo 4 . '<br>';
+	case 5:
+		echo 5 . '<br>';
+	case 6:
+		echo 6 . '<br>';
+	case 7:
+		echo 7 . '<br>';
+	case 8:
+		echo 8 . '<br>';
+	case 9:
+		echo 9 . '<br>';
+}
+```
+
+**4.**
+```php
+<?php
+function sum($a, $b) {
+	return $a + $b;
+}
+function sub($a, $b) {
+	return $a - $b;
+}
+function mul($a, $b) {
+	return $a * $b;
+}
+function div($a, $b) {
+	return $a / $b;
+}
+function power($a, $b) {
+	return $a ** $b;
+}
+function mod($a, $b) {
+	return $a % $b;
+}
+```
+
+**5.**
+```php
+<?php
+function sum($a, $b) {
+	return $a + $b;
+}
+function sub($a, $b) {
+	return $a - $b;
+}
+function mul($a, $b) {
+	return $a * $b;
+}
+function div($a, $b) {
+	return $a / $b;
+}
+function power($a, $b) {
+	return $a ** $b;
+}
+function mod($a, $b) {
+	return $a % $b;
+}
+
+function mathOperation($a, $b, $operation) {
+	switch ($operation) {
+		case '+':
+			return sum($a, $b);
+		case '-':
+			return sub($a, $b);
+		case '*':
+			return mul($a, $b);
+		case '/':
+			return div($a, $b);
+		case '**':
+			return power($a, $b);
+		case '%':
+			return mod($a, $b);
+	}
+}
+```
+
+**6.**
+```php
+<?php
+function power($val, $pow) {
+	if($pow === 0) {
+		return 1;
+	}
+	elseif($pow == 1) {
+		return $val;
+	}
+	elseif($pow < 0) {
+		return 1 / power($val, abs($pow));
+	}
+	return $val * power($val, $pow-1);
+}
+```
+
+**7.**
+```php
+<?php
+function maxNum($a, $b) {
+	return ($a > $b) ? $a : $b;
+}
+function minNum($a, $b) {
+	return ($a < $b) ? $a : $b;
+}
+
+$a = 50;
+$b = 5;
+$mul = $a * $b;
+$max = maxNum($a, $b);
+$min = minNum($a, $b);
+
+if($mul > 100 && $mul < 1000) {
+	echo $max - $min;
+}
+elseif($mul > 1000) {
+	echo $mul / $max;
+}
+```
