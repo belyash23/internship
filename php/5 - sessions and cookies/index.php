@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION["authed"])) {
+if(isset($_SESSION["authed"]) && isset($_SESSION['lastPage'])) {
     header("Location: {$_SESSION["lastPage"]}");
 }
 else {

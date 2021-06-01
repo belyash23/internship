@@ -1,7 +1,7 @@
 <?php
 function generateFileName($path, $extension) {
     do {
-        $fileName = time();
+        $fileName = rand() + time();
     } while(file_exists($path . $fileName . "." . $extension));
     return $fileName;
 }

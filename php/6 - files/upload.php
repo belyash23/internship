@@ -22,26 +22,31 @@ if(isset($_POST["upload"])) {
                 $input = imagecreatefrompng($photo["tmp_name"]);
                 $smallPhoto = resizeImage($input, 200);
                 imagepng($smallPhoto, $path . $fileName);
+                imagedestroy($smallPhoto);
                 break;
             case "jpg":
                 $input = imagecreatefromjpeg($photo["tmp_name"]);
                 $smallPhoto = resizeImage($input, 200);
                 imagejpeg($smallPhoto, $path . $fileName);
+                imagedestroy($smallPhoto);
                 break;
             case "jpeg":
                 $input = imagecreatefromjpeg($photo["tmp_name"]);
                 $smallPhoto = resizeImage($input, 200);
                 imagejpeg($smallPhoto, $path . $fileName);
+                imagedestroy($smallPhoto);
                 break;
             case "wbmp":
                 $input = imagecreatefromwbmp($photo["tmp_name"]);
                 $smallPhoto = resizeImage($input, 200);
                 imagewbmp($smallPhoto, $path . $fileName);
+                imagedestroy($smallPhoto);
                 break;
             case "gif":
                 $input = imagecreatefromgif($photo["tmp_name"]);
                 $smallPhoto = resizeImage($input, 200);
                 imagegif($smallPhoto, $path . $fileName);
+                imagedestroy($smallPhoto);
                 break;
             default:
                 echo "Ошибка!";

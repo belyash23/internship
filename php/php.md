@@ -480,3 +480,9 @@ function translit($str) {
 
 ## Cookies и сессии PHP.
 https://github.com/belyash23/internship/tree/main/php/5%20-%20sessions%20and%20cookies
+
+## Работа с файлами
+https://github.com/belyash23/internship/tree/main/php/6%20-%20files
+
+## Работа с базой данных
+https://github.com/belyash23/internship/tree/main/php/7%20-%20database

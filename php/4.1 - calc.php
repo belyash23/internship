@@ -38,7 +38,12 @@ if(isset($_POST['calc'])) {
                 $result = $number1 * $number2;
                 break;
             case '/':
-                $result = $number1 / $number2;
+                if($number2 == 0) {
+                    echo "Ошибка!";
+                }
+                else{
+                    $result = $number1 / $number2;
+                }
                 break;
             case '**':
                 $result = $number1 ** $number2;

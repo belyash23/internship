@@ -12,5 +12,6 @@ function resizeImage($input, $maxSideSize) {
     }
     $output = imagecreatetruecolor($outputWidth, $outputHeight);
     imagecopyresampled($output, $input, 0, 0, 0, 0, $outputWidth, $outputHeight, $inputWidth, $inputHeight);
+    imagedestroy($input);
     return $output;
 }
