@@ -1,7 +1,8 @@
 <?php
+
 require_once("connect.php");
-if(isset($_GET["id"])) {
-    $id = (int) $_GET["id"];
+if (isset($_GET["id"])) {
+    $id = (int)$_GET["id"];
     $pdo = connect();
 
     $query = $pdo->prepare("UPDATE photo SET views = views + 1 WHERE id = ?");

@@ -1,8 +1,8 @@
 <?php
+
 session_start();
-if(isset($_SESSION["authed"]) && isset($_SESSION['lastPage'])) {
+if (isset($_SESSION["authed"]) && isset($_SESSION['lastPage'])) {
     header("Location: {$_SESSION["lastPage"]}");
-}
-else {
+} else {
     header('Location: auth.php');
 }

@@ -1,5 +1,6 @@
 <?php
-if(isset($_GET["name"])) {
+
+if (isset($_GET["name"])) {
     $fullPath = "photos/big/" . $_GET["name"];
     echo <<<HERE
         <img src="$fullPath"><br><br>

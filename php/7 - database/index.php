@@ -4,7 +4,7 @@ require_once("connect.php");
 $pdo = connect();
 $data = $pdo->query("SELECT * FROM photo ORDER BY views DESC");
 $path = "photos/small/";
-while($photo = $data->fetch()) {
+while ($photo = $data->fetch()) {
     $id = $photo["id"];
     $fullPath = $path . $id . "." . $photo["extension"];
     echo <<<HERE

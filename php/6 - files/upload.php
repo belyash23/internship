@@ -4,20 +4,22 @@
 </form>
 <a href="index.php">index.php</a>
 <?php
+
 require_once("generateFileName.php");
 require_once("resizeImage.php");
-if(isset($_POST["upload"])) {
+
+if (isset($_POST["upload"])) {
     $photo = $_FILES["photo"];
-    if(!$photo) {
+    if (!$photo) {
         echo "Ошибка!";
-    }
-    else {
-        $extension = end(explode(".", $photo["name"]));
+    } else {
+        $nameArray = explode(".", $photo["name"]);
+        $extension = end($nameArray);
         $path = "photos/big/";
         $fileName = generateFileName("photos/big/", $extension);
         copy($photo["tmp_name"], $path . $fileName);
         $path = "photos/small/";
-        switch($extension) {
+        switch ($extension) {
             case "png":
                 $input = imagecreatefrompng($photo["tmp_name"]);
                 $smallPhoto = resizeImage($input, 200);

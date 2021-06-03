@@ -16,18 +16,17 @@
 </form>
 
 <?php
-if(isset($_POST['calc'])) {
+
+if (isset($_POST['calc'])) {
     $number1 = $_POST['number1'];
     $number2 = $_POST['number2'];
     $operation = $_POST['operation'];
-    if($number1 === null || $number2 === null || $operation === null) {
+    if ($number1 === null || $number2 === null || $operation === null) {
         echo 'Ошибка! Все поля должны быть заполнены.';
-    }
-    elseif(!is_numeric($number1) || !is_numeric($number2)) {
+    } elseif (!is_numeric($number1) || !is_numeric($number2)) {
         echo 'Ошибка!';
-    }
-    else{
-        switch($operation) {
+    } else {
+        switch ($operation) {
             case '+':
                 $result = $number1 + $number2;
                 break;
@@ -38,10 +37,9 @@ if(isset($_POST['calc'])) {
                 $result = $number1 * $number2;
                 break;
             case '/':
-                if($number2 == 0) {
+                if ($number2 == 0) {
                     echo "Ошибка!";
-                }
-                else{
+                } else {
                     $result = $number1 / $number2;
                 }
                 break;

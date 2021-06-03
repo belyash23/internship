@@ -8,19 +8,19 @@ require_once("generateFileName.php");
 require_once("resizeImage.php");
 require_once("connect.php");
 
-if(isset($_POST["upload"])) {
+if (isset($_POST["upload"])) {
     $photo = $_FILES["photo"];
-    if(!$photo) {
+    if (!$photo) {
         echo "Ошибка!";
-    }
-    else {
-        $extension = end(explode(".", $photo["name"]));
+    } else {
+        $photoNameArray = explode(".", $photo["name"]);
+        $extension = end($photoNameArray);
         $path = "photos/big/";
         $fileName = generateFileName("photos/big/", $extension);
         copy($photo["tmp_name"], $path . $fileName . "." . $extension);
         $path = "photos/small/";
-        $fullPath = $path . $fileName . "." .  $extension;
-        switch($extension) {
+        $fullPath = $path . $fileName . "." . $extension;
+        switch ($extension) {
             case "png":
                 $input = imagecreatefrompng($photo["tmp_name"]);
                 $smallPhoto = resizeImage($input, 200);
@@ -56,9 +56,11 @@ if(isset($_POST["upload"])) {
         }
         $pdo = connect();
         $query = $pdo->prepare("INSERT INTO photo (id, extension) VALUES(:id, :extension)");
-        $query->execute([
-            "id" => $fileName,
-            "extension" => $extension
-        ]);
+        $query->execute(
+            [
+                "id" => $fileName,
+                "extension" => $extension
+            ]
+        );
     }
 }

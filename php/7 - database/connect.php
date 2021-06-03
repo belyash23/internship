@@ -1,5 +1,7 @@
 <?php
-function connect() {
+
+function connect()
+{
     $dsn = "mysql:host=localhost;dbname=gallery";
     $user = "root";
     $password = "root";

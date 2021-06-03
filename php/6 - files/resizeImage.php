@@ -1,12 +1,13 @@
 <?php
-function resizeImage($input, $maxSideSize) {
+
+function resizeImage($input, $maxSideSize)
+{
     $outputWidth = $inputWidth = imagesx($input);
     $outputHeight = $inputHeight = imagesy($input);
-    if($inputHeight > $maxSideSize && $inputHeight > $inputWidth) {
+    if ($inputHeight > $maxSideSize && $inputHeight > $inputWidth) {
         $outputHeight = $maxSideSize;
         $outputWidth = $outputHeight / $inputHeight * $inputWidth;
-    }
-    elseif($inputWidth > $maxSideSize && $inputWidth > $inputHeight) {
+    } elseif ($inputWidth > $maxSideSize && $inputWidth > $inputHeight) {
         $outputWidth = $maxSideSize;
         $outputHeight = $outputWidth / $inputWidth * $inputHeight;
     }
