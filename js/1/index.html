@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>1</title>
+</head>
+<body>
+	<script src="script.js"></script>
+	<form action="" class="delete">
+		<textarea class="delete__text" name="text"></textarea><br>
+
+		<input type="radio" id="deleteAll" name="type" value="deleteAll">
+		<label for="deleteAll">Удалить 2 случайных символа</label><br>
+		<input type="radio" id="deleteLetters" name="type" value="deleteLetters">
+		<label for="deleteLetters">Удалить 2 случайных буквы</label><br>
+		<input type="radio" id="deleteCommands" name="type" value="deleteCommands">
+		<label for="deleteCommands">Удалить 2 случайных команды</label><br>
+
+
+		<button class="delete__button">Удалить</button><br>
+		<div class="delete__error"></div>
+	</form>
+</body>
+</html>
