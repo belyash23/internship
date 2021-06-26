@@ -6,15 +6,14 @@ function randomIndex(length) {
 
 function deleteSymbols(str) {
 	const strArr = str.split('');
-	const strLen = str.length;
+	const length = str.length;
 
 	for (let i = 0; i < 2; i++) {
 		const index = randomIndex(length-i);
 		strArr.splice(index, 1);
 	}
 
-	const newStr = strArr.join('');
-	return newStr;
+	return strArr.join('');
 }
 
 function deleteLetters(str) {
@@ -41,8 +40,30 @@ function deleteLetters(str) {
 		delete lettersInStr[letterInStrIndex];
 		delete strArr[letter.index];
 	}
-	const newStr = strArr.join('');
-	return newStr;
+	return strArr.join('');
+}
+
+function deleteCommands(str) {
+	window.strArr = str.split('\n');
+	const length = strArr.length;
+	let j = 0;
+	for (let i = 0; i < 2; i++) {
+		j++;
+		if(j == 100) {
+			console.log('fff');
+			break;
+
+		}
+		const index = randomIndex(length-i);
+		if (strArr[index].slice(-2, -1) === ';' || strArr[index].slice(-1) === ';') {
+			strArr.splice(index, 1);
+		}
+		else {
+			i--;
+		}
+	}
+
+	return strArr.join('\n');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -67,6 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
 				break;
 			case 'deleteLetters':
 				newText = deleteLetters(text);
+				break;
+			case 'deleteCommands':
+				newText = deleteCommands(text);
 				break;
 		}
 		textarea.value = newText;
