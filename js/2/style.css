@@ -1,0 +1,9 @@
+.choose-currency-container {
+    display: flex;
+    justify-content: space-around;
+}
+.change-year {
+    width: 50px;
+    margin: 160px auto;
+    display: block;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="chart-container row">
+        <div class="col-lg-1">
+            <button class="change-year btn btn-lg" data-to="prev"><</button>
+        </div>
+        <div class="col-lg-10">
+            <div id="chart" style="width:100%; height:400px;"></div>
+        </div>
+        <div class="col-lg-1">
+            <button class="change-year btn btn-lg" data-to="next">></button>
+        </div>
+
+    </div>
+
+    <div class="choose-currency-container">
+        <div class="choose-currency">
+            <form action="" class="choose-currency__form">
+                <select class="choose-currency__name form-control" data-currency-type="dividend"></select>
+                к
+                <select class="choose-currency__name form-control" data-currency-type="divisor"></select>
+            </form>
+        </div>
+        <div class="choose-currency">
+            <form action="" class="choose-currency__form">
+                <select class="choose-currency__name form-control" data-currency-type="dividend"></select>
+                к
+                <select class="choose-currency__name form-control" data-currency-type="divisor"></select>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<script src="chartData.js" type="module"></script>
+<script src="script.js" type="module"></script>
+</body>
+</html>
