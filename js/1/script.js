@@ -44,16 +44,9 @@ function deleteLetters(str) {
 }
 
 function deleteCommands(str) {
-	window.strArr = str.split('\n');
+	const strArr = str.split('\n');
 	const length = strArr.length;
-	let j = 0;
 	for (let i = 0; i < 2; i++) {
-		j++;
-		if(j == 100) {
-			console.log('fff');
-			break;
-
-		}
 		const index = randomIndex(length-i);
 		if (strArr[index].slice(-2, -1) === ';' || strArr[index].slice(-1) === ';') {
 			strArr.splice(index, 1);

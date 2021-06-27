@@ -1,0 +1,15 @@
+.text img{
+	width: 200px;
+	cursor: pointer;
+}
+.dialog__buttons {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+.dialog__content {
+	width: 50vw;
+	min-height: 50vh;
+	display: block;
+	margin: 0 auto;
+}
