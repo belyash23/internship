@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="combobox.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="preview-controls text-center">
+    <div class="form-group">
+        <label for="select-theme">Тема:</label>
+        <select id="select-theme" class="combobox">
+            <option value="basic-dark-theme">basic dark theme</option>
+            <option value="basic-light-theme">basic light theme</option>
+            <option value="pro-dark-theme">pro dark theme</option>
+            <option value="pro-light-theme">pro light theme</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="select-device">Устройство:</label>
+        <select id="select-device" class="combobox">
+            <option value="1136x640">iPhone 5c 1136x640</option>
+            <option value="1024x768">iPad 1024x768</option>
+            <option value="812x375">iPhone X/XS iOS12 812/375</option>
+            <option value="1366x1024">iPad Pro 1366x1024</option>
+            <option value="653x280">Galaxy Fold 653x280</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="device-orientation">Вертикальная ориентация</label>
+        <input type="checkbox" id="device-orientation">
+    </div>
+</div>
+
+<iframe src="theme.html" class="preview"></iframe>
+
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="script.js" type="module"></script>
+</body>
+</html>
