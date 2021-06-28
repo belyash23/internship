@@ -11,17 +11,23 @@ async function getLocals() {
         $('#locale').append(option);
     }
 }
+
 function getDate(element) {
     let date = null;
     try {
         date = $.datepicker.parseDate(dateFormat, element.value);
-    } catch( error ) {
+    } catch (error) {
         date = null;
     }
     return date;
 }
+
 function highlightDay(date) {
-    if ((dateStart != null || dateEnd != null) && (dateStart <= date || date <= dateEnd)) {
+    if (dateStart != null && dateEnd != null) {
+        if (dateStart <= date && date <= dateEnd) {
+            return [true, "text-primary"];
+        }
+    } else if (dateStart != null && dateStart <= date || dateEnd != null && date <= dateEnd) {
         return [true, "text-primary"];
     }
     return [true]
@@ -30,7 +36,7 @@ function highlightDay(date) {
 const datepicker = $('.datepicker');
 let dateFormat = null;
 let dateStart = null;
-let dateEnd= null;
+let dateEnd = null;
 
 getLocals().then(() => {
     const start = $(".datepicker-start").datepicker({
@@ -55,7 +61,7 @@ $('.form').on('submit', e => {
     e.preventDefault();
     const error = $('.error');
     error.text('');
-    if(!dateStart && !dateEnd) {
+    if (!dateStart && !dateEnd) {
         error.text('Необходимо задать дату начала или дату конца');
     }
 })
