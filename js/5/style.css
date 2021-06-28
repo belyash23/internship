@@ -1,0 +1,7 @@
+.text-primary {
+    border: 1px solid blue !important;
+}
+.form {
+    margin: 100px auto;
+    width: 500px;
+}
